@@ -1,0 +1,353 @@
+﻿@{
+    ViewBag.Title = "Detalles del Proyecto";
+}
+
+<div class="normalheader transition">
+    <div class="hpanel">
+        <div class="panel-body">
+            <a class="small-header-action" href="">
+                <div class="clip-header">
+                    <i class="fa fa-arrow-up"></i>
+                </div>
+            </a>
+            <div id="hbreadcrumb" class="pull-right m-t-lg">
+                <ol class="hbreadcrumb breadcrumb">
+                    <li><a href="index.html">Dashboard</a></li>
+                    <li><a href="@Url.Action("Index", "Proyecto")">Proyectos</a></li>
+                    <li class="active">
+                        <span>Detalles del Proyecto</span>
+                    </li>
+                </ol>
+            </div>
+            <h2 class="font-light m-b-xs">
+                @ViewBag.nombreProyecto
+            </h2>
+            <small>Monitorización de parámetros</small>
+        </div>
+    </div>
+</div>
+
+<div class="content animate-panel">
+    <div class="row">
+        <div class="center-block panel-info tooltip-demo">
+            <button type="button" style="float:left;" class="btn btn-sm btn-default" data-toggle="tooltip" data-placement="top" title="Minimizar todos"><span class="fa fa-chevron-up"></span></button>
+            <button type="button" style="float:left;" class="btn btn-sm btn-default" data-toggle="tooltip" data-placement="top" title="Desplegar todos"><span class="fa fa-chevron-down"></span></button>
+            <button onclick="@Url.Action("DetallesProyecto", "Proyecto")" type="button" style="float:right;" class="btn btn-sm btn-default" data-toggle="tooltip" data-placement="top" title="Vista en Tabs"><i class="fa fa-th-large fa-2x"></i></button>
+            <button onclick="@Url.Action("VistaGridGlobal", "Proyecto")" type="button" style="float:right;" class="btn btn-sm btn-default" data-toggle="tooltip" data-placement="top" title="Vista en Grid"><i class="fa fa-table fa-2x"></i></button>
+        </div>
+    </div>
+    <div class="row">
+        <div class="hpanel">
+            <div class="panel-heading hbuilt">
+                <div class="panel-tools">
+                    <a class="showhide"><i class="fa fa-chevron-up"></i></a>
+                </div>
+                <span style="cursor:pointer;" class="showhide fa fa-hdd-o fa-2x"></span> 
+                <span style="cursor:pointer;" class="showhide font-bold"> PPCSHIS01 </span>
+                <span class="label label-danger">0</span>
+                <span class="label label-warning">4</span>
+                <span class="label label-success">35</span>
+            </div>
+            <div class="panel-body">
+                <div class="row">
+                    <div class="col-lg-6">
+                        <p class="font-extra-bold label label-primary">CPU</p>
+                        <div><canvas id="sharpLineOptions2" height="120"></canvas></div>
+                    </div>
+                    <div class="col-lg-6">
+                        <p class="font-extra-bold label label-primary">RAM</p>
+                        <div><canvas id="sharpLineOptions3" height="120"></canvas></div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-lg-6">
+                        <p class="font-extra-bold label label-primary">Ocupación Unidad C:\</p>
+                        <div><canvas id="doughnutChart" height="100"></canvas></div>
+                    </div>
+                    <div class="col-lg-6">
+                        <p class="font-extra-bold label label-primary" >Ocupación Unidad H:\</p>
+                        <div><canvas id="doughnutChart2" height="100"></canvas></div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="table-responsive">
+                        <div class="tooltip-demo" style="float:right;">
+                            <button type="button" class="btn btn-sm btn-default" data-toggle="tooltip" data-placement="top" title="Exportar a PDF"><i class="fa fa-file-pdf-o fa-2x"></i></button>
+                            <button type="button" class="btn btn-sm btn-default" data-toggle="tooltip" data-placement="top" title="Exportar a CSV"><i class="fa fa-file-excel-o fa-2x"></i></button>
+                        </div>
+                        <p class="font-extra-bold">Todos los parámetros monitorizados del equipo</p>
+                        <table id="example2" class="table table-bordered">
+                            <thead>
+                                <tr>
+                                    <th>Parámetro</th>
+                                    <th>Descripción</th>
+                                    <th>Esperado</th>
+                                    <th>Actual</th>
+                                    <th>Estado</th>
+                                    <th>Comentarios</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr class="alert alert-success">
+                                    <td>Sincronización horaria</td>
+                                    <td>La hora del sistema debe estar sincronizada</td>
+                                    <td>&#60 500ms</td>
+                                    <td>302ms</td>
+                                    <td align="center"><i class="fa fa-check"></i></td>
+                                    <td>Servidor horario PPCSTA01</td>
+                                </tr>
+                                <tr class="alert alert-danger">
+                                    <td>Uso CPU</td>
+                                    <td>% de uso de la CPU</td>
+                                    <td>&#60 75%</td>
+                                    <td>78%</td>
+                                    <td align="center"><i class="fa fa-exclamation"></i></td>
+                                    <td>Intel Core i7 3'1GHz 4 núcleos</td>
+                                </tr>
+                                <tr class="alert alert-success">
+                                    <td>Ocupación disco</td>
+                                    <td>Unidad C:\</td>
+                                    <td>&#60 75%</td>
+                                    <td>67%</td>
+                                    <td align="center"><i class="fa fa-check"></i></td>
+                                    <td>Tamaño del disco: 500GB</td>
+                                </tr>
+                                <tr class="alert alert-success">
+                                    <td>Uso RAM</td>
+                                    <td>Porcentaje de RAM ocupada</td>
+                                    <td>&#60 75%</td>
+                                    <td>30%</td>
+                                    <td align="center"><i class="fa fa-check"></i></td>
+                                    <td>Cuenta con 8GB</td>
+                                </tr>
+                                <tr class="alert alert-danger">
+                                    <td>Estado Historical</td>
+                                    <td>Estado del servicio de Historicos</td>
+                                    <td>Hot / Standby</td>
+                                    <td>Fail</td>
+                                    <td align="center"><i class="fa fa-exclamation"></i></td>
+                                    <td>El servicio no se encuentra activo</td>
+                                </tr>
+                                <tr class="alert alert-success">
+                                    <td>Ocupación BD</td>
+                                    <td>Ocupación de las bases de datos</td>
+                                    <td>&#60 75%</td>
+                                    <td>56%</td>
+                                    <td align="center"><i class="fa fa-check"></i></td>
+                                    <td>Nombre de la Base de Datos OASYSDNA\Historical</td>
+                                </tr>
+                                <tr class="alert alert-danger">
+                                    <td>Fragmentación BD</td>
+                                    <td>Estado de fragmentación de la BD</td>
+                                    <td>&#60 40%</td>
+                                    <td>65%</td>
+                                    <td align="center"><i class="fa fa-exclamation"></i></td>
+                                    <td>Es necesario realizar una desfragmentación de las bases de datos</td>
+                                </tr>
+                                <tr class="alert alert-success">
+                                    <td>AA Sincronización horaria</td>
+                                    <td>La hora del sistema debe estar sincronizada</td>
+                                    <td>&#60 500ms</td>
+                                    <td>302ms</td>
+                                    <td align="center"><i class="fa fa-check"></i></td>
+                                    <td>Servidor horario PPCSTA01</td>
+                                </tr>
+                                <tr class="alert alert-success">
+                                    <td>AA Sincronización horaria</td>
+                                    <td>La hora del sistema debe estar sincronizada</td>
+                                    <td>&#60 500ms</td>
+                                    <td>302ms</td>
+                                    <td align="center"><i class="fa fa-check"></i></td>
+                                    <td>Servidor horario PPCSTA01</td>
+                                </tr>
+                                <tr class="alert alert-success">
+                                    <td>AA Sincronización horaria</td>
+                                    <td>La hora del sistema debe estar sincronizada</td>
+                                    <td>&#60 500ms</td>
+                                    <td>302ms</td>
+                                    <td align="center"><i class="fa fa-check"></i></td>
+                                    <td>Servidor horario PPCSTA01</td>
+                                </tr>
+                                <tr class="alert alert-success">
+                                    <td>AA Sincronización horaria</td>
+                                    <td>La hora del sistema debe estar sincronizada</td>
+                                    <td>&#60 500ms</td>
+                                    <td>302ms</td>
+                                    <td align="center"><i class="fa fa-check"></i></td>
+                                    <td>Servidor horario PPCSTA01</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="hpanel collapsed">
+            <div class="panel-heading hbuilt">
+                <div class="panel-tools">
+                    <a class="showhide"><i class="fa fa-chevron-up"></i></a>
+                </div>
+                <span style="cursor:pointer;" class="showhide fa fa-hdd-o fa-2x"></span>
+                <span style="cursor:pointer;" class="showhide font-bold"> PPCSTA01 </span>
+                <span class="label label-danger">0</span>
+                <span class="label label-warning">4</span>
+                <span class="label label-success">35</span>
+            </div>
+            <div class="panel-body">
+   
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="hpanel collapsed">
+            <div class="panel-heading hbuilt">
+                <div class="panel-tools">
+                    <a class="showhide"><i class="fa fa-chevron-up"></i></a>
+                </div>
+                <span style="cursor:pointer;" class="showhide fa fa-hdd-o fa-2x"></span>
+                <span style="cursor:pointer;" class="showhide font-bold"> PCSDMS01 </span>
+                <span class="label label-danger">3</span>
+                <span class="label label-warning">5</span>
+                <span class="label label-success">28</span>
+                </div>
+            <div class="alert alert-danger">
+                <i class="fa fa-warning"></i> Se ha encontrado uno o más problemas en este equipo
+            </div>
+            <div class="panel-body">
+
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="hpanel collapsed">
+            <div class="panel-heading hbuilt">
+                <div class="panel-tools">
+                    <a class="showhide"><i class="fa fa-chevron-up"></i></a>
+                </div>
+                <span style="cursor:pointer;" class="showhide fa fa-laptop fa-2x"></span>
+                <span style="cursor:pointer;" class="showhide font-bold"> PCSXOS01 </span>
+                <span class="label label-danger">3</span>
+                <span class="label label-warning">5</span>
+                <span class="label label-success">28</span>
+                </div>
+            <div class="alert alert-warning">
+                <i class="fa fa-exclamation"></i> Se ha encontrado uno o más problemas en este equipo
+            </div>
+            <div class="panel-body">
+
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Styles {
+    @Styles.Render("~/bundles/datatables/css")
+}
+
+@section Scripts {
+    @Scripts.Render("~/bundles/chartjs/js")
+    @Scripts.Render("~/bundles/datatables/js")
+    @Scripts.Render("~/bundles/datatablesBootstrap/js")
+
+    <script type="text/javascript">
+
+        $(function () {
+
+            // JSON data
+            var chartDataUrl = '@Url.Action("tableJsonData", "Tables")';
+
+            // Initialize Example 1
+            $('#example1').dataTable({
+                "ajax": chartDataUrl
+            });
+
+            // Initialize Example 2
+            $('#example2').dataTable();
+
+        });
+
+    </script>
+
+    <script type="text/javascript">
+
+        
+        $(function () {
+
+            /**
+              * Options for Sharp Line chart
+              */
+            var sharpLineData2 = {
+                labels: ["09:00:00", "09:10:00", "09:20:00", "09:30:00", "09:40:00", "09:50:00", "10:00:00", "10:10:00", "10:20:00", "10:30:00", "10:40:00", "10:50:00", "11:00:00"],
+                datasets: [
+                    {
+                        label: "% de uso",
+                        //fillColor: "rgba(98,203,49,0.5)",
+                        strokeColor: "rgba(98,203,49,0.7)",
+                        pointColor: "rgba(98,203,49,1)",
+                        pointStrokeColor: "#fff",
+                        pointHighlightFill: "#fff",
+                        pointHighlightStroke: "rgba(98,203,49,1)",
+                        data: [(Math.random() * 100) + 1, (Math.random() * 100) + 1, (Math.random() * 100) + 1, (Math.random() * 100) + 1, (Math.random() * 100) + 1, (Math.random() * 100) + 1, (Math.random() * 100) + 1, 0, (Math.random() * 100) + 1, (Math.random() * 100) + 1, 100, (Math.random() * 100) + 1, (Math.random() * 100) + 1]
+                    }
+                ]
+            };
+
+            var sharpLineOptions2 = {
+                scaleShowGridLines: true,
+                scaleGridLineColor: "rgba(0,0,0,.05)",
+                scaleGridLineWidth: 1,
+                bezierCurve: false,
+                pointDot: true,
+                pointDotRadius: 4,
+                pointDotStrokeWidth: 1,
+                pointHitDetectionRadius: 20,
+                datasetStroke: true,
+                datasetStrokeWidth: 1,
+                datasetFill: true,
+                responsive: true
+            };
+
+            var ctx = document.getElementById("sharpLineOptions2").getContext("2d");
+            var ctx2 = document.getElementById("sharpLineOptions3").getContext("2d");
+            var myNewChart = new Chart(ctx).Line(sharpLineData2, sharpLineOptions2);
+            var myNewChart2 = new Chart(ctx2).Line(sharpLineData2, sharpLineOptions2);
+
+            var num = (Math.random() * 100) + 1;
+            
+            var doughnutData2 = [
+                {
+                    value: num,
+                    color: "#62cb31",
+                    highlight: "#57b32c",
+                    label: "Libre"
+                },
+                {
+                    value: 100 - num,
+                    color: "#91dc6e",
+                    highlight: "#57b32c",
+                    label: "Ocupado"
+                }
+            ];
+
+            var doughnutOptions2 = {
+                segmentShowStroke: true,
+                segmentStrokeColor: "#fff",
+                segmentStrokeWidth: 2,
+                percentageInnerCutout: 45, // This is 0 for Pie charts
+                animationSteps: 100,
+                animationEasing: "easeOutBounce",
+                animateRotate: true,
+                animateScale: true,
+                responsive: true,
+            };
+
+
+            var ctxDonut = document.getElementById("doughnutChart").getContext("2d");
+            var ctxDonut2 = document.getElementById("doughnutChart2").getContext("2d");
+            var myDonutChart = new Chart(ctxDonut).Doughnut(doughnutData2, doughnutOptions2);
+            var myDonutChart2 = new Chart(ctxDonut2).Doughnut(doughnutData2, doughnutOptions2);
+        })
+    </script>
+}

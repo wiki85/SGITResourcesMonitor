@@ -1,11 +1,11 @@
 ﻿<div id="navigation">
     <div class="profile-picture">
         <a href="@Url.Action("Index", "Dashboard")">
-            <img src="~/Images/profile.jpg" class="img-circle m-b" alt="logo">
+            <img src="~/Content/Images/profile.jpg" class="img-circle m-b img-polaroid" alt="logo">
         </a>
 
         <div class="stats-label text-color">
-            <span class="font-extra-bold font-uppercase">Robert Razer</span>
+            <span class="font-extra-bold font-uppercase">julián lloris</span>
 
             <div class="dropdown">
                 <a class="dropdown-toggle" href="#" data-toggle="dropdown">
@@ -23,8 +23,15 @@
     </div>
 
     <ul class="nav" id="side-menu">
-        <li class="@Html.IsSelected(controller: "BoxTransitions")">
-            <a href="@Url.Action("PanelsZoom", "BoxTransitions")"> <span class="nav-label">Proyectos</span> <span class="label label-success pull-right">6</span> </a>
+        <li class="@Html.IsSelected(controller: "Proyecto")">
+            <a href="@Url.Action("Index", "Proyecto")"><span class="nav-label">Proyectos</span> <span class="label label-default pull-right">7</span> </a>
+        </li>
+        <li class="@Html.IsSelected(controller: "Usuario")">
+            <a href="#"><span class="nav-label"></span>Administrar usuarios<span class="fa arrow"></span> </a>
+            <ul class="nav nav-second-level">
+                <li class="@Html.IsSelected(action: "Perfil")"><a href="@Url.Action("Perfil", "Usuario")">Mi perfil</a></li>
+                <li class="@Html.IsSelected(action: "DetallesUsuario")"><a href="@Url.Action("DetallesUsuario", "Usuario")">Administrador</a></li>
+            </ul>
         </li>
         <li class="@Html.IsSelected(controller: "Dashboard")">
             <a href="@Url.Action("Index", "Dashboard")"> <span class="nav-label">Dashboard</span> <span class="label label-success pull-right">v.1</span> </a>
@@ -91,7 +98,6 @@
                 <li class="@Html.IsSelected(action: "Overview")"><a href="@Url.Action("Overview", "BoxTransitions")"><span class="label label-success pull-right">Start</span> Overview </a>  </li>
                 <li class="@Html.IsSelected(action: "ColumnsFromUp")"><a href="@Url.Action("ColumnsFromUp", "BoxTransitions")">Columns from up</a></li>
                 <li class="@Html.IsSelected(action: "ColumnsCustom")"><a href="@Url.Action("ColumnsCustom", "BoxTransitions")">Columns custom</a></li>
-                <li class="@Html.IsSelected(action: "PanelsZoom")"><a href="@Url.Action("PanelsZoom", "BoxTransitions")">Panels zoom</a></li>
                 <li class="@Html.IsSelected(action: "RowsFromDown")"><a href="@Url.Action("RowsFromDown", "BoxTransitions")">Rows from down</a></li>
                 <li class="@Html.IsSelected(action: "RowsFromRight")"><a href="@Url.Action("RowsFromRight", "BoxTransitions")">Rows from right</a></li>
             </ul>

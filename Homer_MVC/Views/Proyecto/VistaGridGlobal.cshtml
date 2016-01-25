@@ -1,0 +1,149 @@
+﻿@{
+    ViewBag.Title = "Proyectos";
+}
+
+<div class="p-lg">
+    <div class="row">
+        <div class="center-block panel-info tooltip-demo">
+            <button onclick="@Url.Action("DetallesProyecto", "Proyecto")" type="button" style="float:right;" class="btn btn-sm btn-default" data-toggle="tooltip" data-placement="top" title="Vista en Tabs"><i class="fa fa-th-large fa-2x"></i></button>
+            <button onclick="@Url.Action("VistaGridGlobal", "Proyecto")" type="button" style="float:right;" class="btn btn-sm btn-default" data-toggle="tooltip" data-placement="top" title="Vista en Grid"><i class="fa fa-table fa-2x"></i></button>
+        </div>
+    </div>     
+    <div class="row">
+        <div class="table-responsive">
+            <div class="tooltip-demo" style="float:right;">
+                <button type="button" class="btn btn-sm btn-default" data-toggle="tooltip" data-placement="top" title="Exportar a PDF"><i class="fa fa-file-pdf-o fa-2x"></i></button>
+                <button type="button" class="btn btn-sm btn-default" data-toggle="tooltip" data-placement="top" title="Exportar a CSV"><i class="fa fa-file-excel-o fa-2x"></i></button>
+            </div>
+            <p class="font-extra-bold">Todos los parámetros monitorizados del equipo</p>
+            <table id="example2" class="table table-bordered">
+                <thead>
+                    <tr>
+                        <th>Parámetro</th>
+                        <th>Descripción</th>
+                        <th>Esperado</th>
+                        <th>Actual</th>
+                        <th>Estado</th>
+                        <th>Comentarios</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr class="alert alert-success">
+                        <td>Sincronización horaria</td>
+                        <td>La hora del sistema debe estar sincronizada</td>
+                        <td>&#60 500ms</td>
+                        <td>302ms</td>
+                        <td align="center"><i class="fa fa-check"></i></td>
+                        <td>Servidor horario PPCSTA01</td>
+                    </tr>
+                    <tr class="alert alert-danger">
+                        <td>Uso CPU</td>
+                        <td>% de uso de la CPU</td>
+                        <td>&#60 75%</td>
+                        <td>78%</td>
+                        <td align="center"><i class="fa fa-exclamation"></i></td>
+                        <td>Intel Core i7 3'1GHz 4 núcleos</td>
+                    </tr>
+                    <tr class="alert alert-success">
+                        <td>Ocupación disco</td>
+                        <td>Unidad C:\</td>
+                        <td>&#60 75%</td>
+                        <td>67%</td>
+                        <td align="center"><i class="fa fa-check"></i></td>
+                        <td>Tamaño del disco: 500GB</td>
+                    </tr>
+                    <tr class="alert alert-success">
+                        <td>Uso RAM</td>
+                        <td>Porcentaje de RAM ocupada</td>
+                        <td>&#60 75%</td>
+                        <td>30%</td>
+                        <td align="center"><i class="fa fa-check"></i></td>
+                        <td>Cuenta con 8GB</td>
+                    </tr>
+                    <tr class="alert alert-danger">
+                        <td>Estado Historical</td>
+                        <td>Estado del servicio de Historicos</td>
+                        <td>Hot / Standby</td>
+                        <td>Fail</td>
+                        <td align="center"><i class="fa fa-exclamation"></i></td>
+                        <td>El servicio no se encuentra activo</td>
+                    </tr>
+                    <tr class="alert alert-success">
+                        <td>Ocupación BD</td>
+                        <td>Ocupación de las bases de datos</td>
+                        <td>&#60 75%</td>
+                        <td>56%</td>
+                        <td align="center"><i class="fa fa-check"></i></td>
+                        <td>Nombre de la Base de Datos OASYSDNA\Historical</td>
+                    </tr>
+                    <tr class="alert alert-danger">
+                        <td>Fragmentación BD</td>
+                        <td>Estado de fragmentación de la BD</td>
+                        <td>&#60 40%</td>
+                        <td>65%</td>
+                        <td align="center"><i class="fa fa-exclamation"></i></td>
+                        <td>Es necesario realizar una desfragmentación de las bases de datos</td>
+                    </tr>
+                    <tr class="alert alert-success">
+                        <td>AA Sincronización horaria</td>
+                        <td>La hora del sistema debe estar sincronizada</td>
+                        <td>&#60 500ms</td>
+                        <td>302ms</td>
+                        <td align="center"><i class="fa fa-check"></i></td>
+                        <td>Servidor horario PPCSTA01</td>
+                    </tr>
+                    <tr class="alert alert-success">
+                        <td>AA Sincronización horaria</td>
+                        <td>La hora del sistema debe estar sincronizada</td>
+                        <td>&#60 500ms</td>
+                        <td>302ms</td>
+                        <td align="center"><i class="fa fa-check"></i></td>
+                        <td>Servidor horario PPCSTA01</td>
+                    </tr>
+                    <tr class="alert alert-success">
+                        <td>AA Sincronización horaria</td>
+                        <td>La hora del sistema debe estar sincronizada</td>
+                        <td>&#60 500ms</td>
+                        <td>302ms</td>
+                        <td align="center"><i class="fa fa-check"></i></td>
+                        <td>Servidor horario PPCSTA01</td>
+                    </tr>
+                    <tr class="alert alert-success">
+                        <td>AA Sincronización horaria</td>
+                        <td>La hora del sistema debe estar sincronizada</td>
+                        <td>&#60 500ms</td>
+                        <td>302ms</td>
+                        <td align="center"><i class="fa fa-check"></i></td>
+                        <td>Servidor horario PPCSTA01</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+@section Styles {
+    @Styles.Render("~/bundles/datatables/css")
+}
+
+@section Scripts {
+    @Scripts.Render("~/bundles/datatables/js")
+    @Scripts.Render("~/bundles/datatablesBootstrap/js")
+
+    <script type="text/javascript">
+
+        $(function () {
+
+            // JSON data
+            var chartDataUrl = '@Url.Action("tableJsonData", "Tables")';
+
+            // Initialize Example 1
+            $('#example1').dataTable({
+                "ajax": chartDataUrl
+            });
+
+            // Initialize Example 2
+            $('#example2').dataTable();
+
+        });
+    </script>

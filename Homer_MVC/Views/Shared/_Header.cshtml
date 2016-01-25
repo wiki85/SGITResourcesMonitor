@@ -1,12 +1,13 @@
 ﻿<div class="color-line">
 </div>
 <div id="logo" class="light-version">
-    <span>Schneider-Electric</span>
+    @*<span>Schneider-Electric</span>*@
+    <img src="~/Content/Images/logo/logo_small.png" />
 </div>
 <nav role="navigation">
     <div class="header-link hide-menu"><i class="fa fa-bars"></i></div>
     <div class="small-logo">
-        <span class="text-primary">Schneider-Electric Dashboard APP</span>
+        <span class="text-primary">SGIT Resources Monitor</span>
     </div>
     <form role="search" class="navbar-form-custom" method="post" action="#">
         <div class="form-group">
@@ -26,7 +27,7 @@
                     <a class="" href="@Url.Action("Register", "CommonViews")">Logout</a>
                 </li>
                 <li>
-                    <a class="" href="@Url.Action("ProfilePage", "AppViews")">Profile</a>
+                    <a class="" href="@Url.Action("ProfilePage", "AppViews")">Perfil</a>
                 </li>
             </ul>
         </div>
@@ -34,26 +35,27 @@
     <div class="navbar-right">
         <ul class="nav navbar-nav no-borders">
             <li class="dropdown">
-                <a class="dropdown-toggle" href="#" data-toggle="dropdown">
+                <a class="dropdown-toggle label-menu-corner" href="#" data-toggle="dropdown">
                     <i class="pe-7s-speaker"></i>
+                    <span class="label label-danger">3</span>
                 </a>
                 <ul class="dropdown-menu hdropdown notification animated flipInX">
                     <li>
                         <a>
-                            <span class="label label-success">NEW</span> It is a long established.
+                            <span class="label label-danger">ALERT</span> Poco espacio en disco en CFE
                         </a>
                     </li>
                     <li>
                         <a>
-                            <span class="label label-warning">WAR</span> There are many variations.
+                            <span class="label label-warning">WAR</span> Alto uso de la CPU en EMCALI
                         </a>
                     </li>
                     <li>
                         <a>
-                            <span class="label label-danger">ERR</span> Contrary to popular belief.
+                            <span class="label label-warning">WAR</span> Perdida de conexión con XOS en ENSA
                         </a>
                     </li>
-                    <li class="summary"><a href="#">See all notifications</a></li>
+                    <li class="summary"><a href="#">Ver todas las notificaciones</a></li>
                 </ul>
             </li>
             <li class="dropdown">
@@ -106,43 +108,6 @@
                         </tbody>
                     </table>
                 </div>
-            </li>
-            <li class="dropdown">
-                <a class="dropdown-toggle label-menu-corner" href="#" data-toggle="dropdown">
-                    <i class="pe-7s-mail"></i>
-                    <span class="label label-success">4</span>
-                </a>
-                <ul class="dropdown-menu hdropdown animated flipInX">
-                    <div class="title">
-                        You have 4 new messages
-                    </div>
-                    <li>
-                        <a>
-                            It is a long established.
-                        </a>
-                    </li>
-                    <li>
-                        <a>
-                            There are many variations.
-                        </a>
-                    </li>
-                    <li>
-                        <a>
-                            Lorem Ipsum is simply dummy.
-                        </a>
-                    </li>
-                    <li>
-                        <a>
-                            Contrary to popular belief.
-                        </a>
-                    </li>
-                    <li class="summary"><a href="#">See All Messages</a></li>
-                </ul>
-            </li>
-            <li>
-                <a href="#" id="sidebar" class="right-sidebar-toggle">
-                    <i class="pe-7s-upload pe-7s-news-paper"></i>
-                </a>
             </li>
             <li class="dropdown">
                 <a href="login.html">

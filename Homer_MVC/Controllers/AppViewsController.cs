@@ -19,6 +19,11 @@ namespace Homer_MVC.Controllers
             return View();
         }
 
+        public ActionResult Proyectos()
+        {
+            return View();
+        }
+
         public ActionResult SocialBoard()
         {
             return View();
@@ -59,8 +64,15 @@ namespace Homer_MVC.Controllers
             return View();
         }
 
-        public ActionResult ProjectDetail()
+        public ActionResult ProjectDetail(string nombreProyecto)
         {
+            ViewBag.nombreProyecto = nombreProyecto;
+            return View();
+        }
+
+        public ActionResult DetallesProyecto(string nombreProyecto)
+        {
+            ViewBag.nombreProyecto = nombreProyecto;
             return View();
         }
 

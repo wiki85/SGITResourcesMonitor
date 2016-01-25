@@ -27,7 +27,7 @@ namespace Homer_MVC
 
             // Pe-icon-7-stroke
             bundles.Add(new StyleBundle("~/bundles/peicon7stroke/css").Include(
-                      "~/Icons/pe-icon-7-stroke/css/pe-icon-7-stroke.css", new CssRewriteUrlTransform()));
+                      "~/Content/Icons/pe-icon-7-stroke/css/pe-icon-7-stroke.css", new CssRewriteUrlTransform()));
 
             // Font Awesome icons style
             bundles.Add(new StyleBundle("~/bundles/font-awesome/css").Include(

@@ -24,6 +24,7 @@ namespace Homer_MVC.Controllers
             }
             catch(Exception e)
             {
+                ViewBag.Error = e.Message;
                 return RedirectToAction("Index", "LandingPage");
             }
             

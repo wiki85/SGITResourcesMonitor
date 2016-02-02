@@ -29,8 +29,8 @@
         <li class="@Html.IsSelected(controller: "Usuario")">
             <a href="#"><span class="nav-label"></span>Administrar usuarios<span class="fa arrow"></span> </a>
             <ul class="nav nav-second-level">
-                <li class="@Html.IsSelected(action: "Perfil")"><a href="@Url.Action("Perfil", "Usuario")">Mi perfil</a></li>
-                <li class="@Html.IsSelected(action: "DetallesUsuario")"><a href="@Url.Action("DetallesUsuario", "Usuario")">Administrador</a></li>
+                <li class="@Html.IsSelected(action: "Perfil")"><a href="@Url.Action("Perfil", "Usuario", new { emailUsuario = "julian.lloris@schneider-electric.com" })">Mi perfil</a></li>
+                <li class="@Html.IsSelected(action: "AdministrarUsuarios")"><a href="@Url.Action("AdministrarUsuarios", "Usuario")">Administrador</a></li>
             </ul>
         </li>
         <li class="@Html.IsSelected(controller: "Dashboard")">

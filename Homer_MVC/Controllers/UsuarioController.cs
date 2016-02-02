@@ -6,21 +6,21 @@ using System.Web.Mvc;
 
 namespace Homer_MVC.Controllers
 {
-    public class ProyectoController : Controller
+    public class UsuarioController : Controller
     {
         public ActionResult Index()
         {
             return View();
         }
 
-        public ActionResult DetallesProyecto(string nombreProyecto)
+        public ActionResult DetallesUsuario(string emailUsuario)
         {
-            ViewBag.nombreProyecto = nombreProyecto;
+            ViewBag.nombreProyecto = emailUsuario;
             return View();
         }
-        public ActionResult VistaGridGlobal(string nombreProyecto)
+        public ActionResult Perfil(string emailUsuario)
         {
-            ViewBag.nombreProyecto = nombreProyecto;
+            ViewBag.nombreProyecto = emailUsuario;
             return View();
         }
     }
